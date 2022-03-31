@@ -9,7 +9,3 @@ message Message {
 service ChatService {
   rpc SayHello(Message) returns (Message) {}
 }
-
-// -1 means
-// option ??
-// generate go code from proto

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"main/chat"
 	"net"
 
 	"google.golang.org/grpc"
@@ -16,11 +17,11 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	// s := chat.Server{}
+	s := chat.Server{}
 
 	grpcServer := grpc.NewServer()
 
-	// chat.RegisterChatServiceServer(grpcServer, &s)
+	chat.RegisterChatServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)
